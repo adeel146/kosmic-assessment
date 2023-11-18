@@ -14,7 +14,7 @@ import UserProfile from "../assets/images/user1.png";
 const Header = () => {
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" >
         <Container
           maxWidth="2px"
           sx={{

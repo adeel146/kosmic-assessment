@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import Header from "./components/Header";
 import MainArea from "./components/MainArea";
 import Footer from "./components/Footer";
@@ -50,6 +50,7 @@ function App() {
           display: "flex",
           alignItems: "center",
         }}
+        sx={{ borderBottom: "1px solid #3A3940" }}
       >
         <Header />
       </Grid>

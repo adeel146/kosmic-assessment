@@ -4,6 +4,7 @@ import {
   Box,
   Chip,
   Container,
+  Divider,
   Slider,
   Stack,
   TextField,
@@ -48,12 +49,20 @@ const MainArea = ({
     <Container
       maxWidth="10px"
       sx={{
-        backgroundColor: "#3A3940",
+        backgroundColor: "12111A",
       }}
     >
-      <Typography variant="h6">Content type</Typography>
-      <Typography>Choose a content type that best fits your needs.</Typography>
-      <Stack direction="row" spacing={1}>
+      <Typography variant="h6" mt={6}>
+        Content type
+      </Typography>
+      <Typography variant="subtitle1" fontSize={13} color="#D0CFD1" mb={3}>
+        Choose a content type that best fits your needs.
+      </Typography>
+      <Divider />
+      <Typography variant="h6" mt={4}>
+        What type of content are you creating
+      </Typography>
+      <Stack direction="row" spacing={1} my={2}>
         {contentTypes.map((content) => (
           <Chip
             key={content.label}
@@ -70,7 +79,9 @@ const MainArea = ({
 
       {selectedContent && (
         <>
-          <Typography>{`What should be the title for the "${selectedContent}" discussion?`}</Typography>
+          <Typography
+            mb={2}
+          >{`What should be the title for the "${selectedContent}" discussion?`}</Typography>
           <Autocomplete
             popupIcon={<DropdownIcon />}
             size="small"
@@ -87,7 +98,7 @@ const MainArea = ({
               <TextField
                 sx={{
                   borderRadius: "8px",
-                  background: "rgba(58, 57, 64, 0.30)",
+                  background: "#3A3940",
                   border: "none",
                 }}
                 variant="outlined"
@@ -99,8 +110,17 @@ const MainArea = ({
         </>
       )}
 
-      <Typography>Set the number of words for output text.</Typography>
-      <Box sx={{ width: "381px" }}>
+      <Typography mt={3} mb={4}>
+        Set the number of words for output text.
+      </Typography>
+      <Box
+        sx={{
+          width: "381px",
+          backgroundColor: "black",
+          padding: "5px",
+          borderRadius: "12px",
+        }}
+      >
         <Stack direction="row" sx={{ mb: 1 }} alignItems="center">
           <Typography>100</Typography>
           <Slider
