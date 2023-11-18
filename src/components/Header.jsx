@@ -1,38 +1,14 @@
-import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import EditIcon from "../assets/icons/EditIcon";
-
-const settings = ["Profile", "Account", "Logout"];
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import UserProfile from "../assets/images/user1.png";
 
 const Header = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
   const textStyle = {
     color: "var(--color-onboarding-primary-text, #FFF)",
     fontFamily: "Poppins",
@@ -69,7 +45,7 @@ const Header = () => {
             }}
           >
             <IconButton>
-              <EditIcon />
+              <KeyboardBackspaceIcon />
             </IconButton>
             <Box
               sx={{
@@ -83,35 +59,22 @@ const Header = () => {
               <Typography style={subHeading}>Draft Compaign</Typography>
             </Box>
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+          <Box
+            sx={{
+              display: "flex",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexFlow: "column",
+                paddingRight: "10px",
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+              <Typography style={textStyle}>Media management</Typography>
+              <Typography style={subHeading}>Draft Compaign</Typography>
+            </Box>
+            <Avatar variant="rounded" alt="Remy Sharp" src={UserProfile} />
           </Box>
         </Container>
       </AppBar>
