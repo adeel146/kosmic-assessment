@@ -27,7 +27,11 @@ function App() {
   };
 
   const handleNextClick = () => {
-    console.log("Selected Values:", { selectedContent, selectedTitle, wordCount });
+    console.log("Selected Values:", {
+      selectedContent,
+      selectedTitle,
+      wordCount,
+    });
     const alertMessage = `
       Selected Content: ${selectedContent}
       Selected Title: ${selectedTitle || "None"}
@@ -38,7 +42,15 @@ function App() {
 
   return (
     <Grid container direction="column" style={{ minHeight: "100vh" }}>
-      <Grid item style={{ height: "111px" }}>
+      <Grid
+        item
+        style={{
+          height: "95px",
+          backgroundColor: "black",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         <Header />
       </Grid>
       <Grid item xs flexGrow={1}>

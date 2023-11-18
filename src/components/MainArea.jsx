@@ -3,6 +3,7 @@ import {
   Autocomplete,
   Box,
   Chip,
+  Container,
   Slider,
   Stack,
   TextField,
@@ -44,7 +45,12 @@ const MainArea = ({
   };
 
   return (
-    <Box>
+    <Container
+      maxWidth="10px"
+      sx={{
+        backgroundColor: "#3A3940",
+      }}
+    >
       <Typography variant="h6">Content type</Typography>
       <Typography>Choose a content type that best fits your needs.</Typography>
       <Stack direction="row" spacing={1}>
@@ -110,7 +116,7 @@ const MainArea = ({
           <Typography>1000</Typography>
         </Stack>
       </Box>
-    </Box>
+    </Container>
   );
 };
 
