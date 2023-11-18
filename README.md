@@ -57,3 +57,5 @@ Make sure you have the following software installed on your machine:
 ```bash
    yarn dev
    ```
+
+This will start the development server, and you can view your project by opening your browser and navigating to http://localhost:3000. or http://localhost:5173/.
