@@ -8,10 +8,6 @@ Welcome to the Kosmic Assessment project!
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Running the Project](#running-the-project)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -44,20 +40,20 @@ Make sure you have the following software installed on your machine:
    npm install
    ```
 
-# or
+   or
 
-yarn
+   ```bash
+   yarn
+   ```
 
-````
 ### Running the Project
 
 1. Start the development server:
 
    ```bash
    npm run dev
-# or
-yarn dev
-
    ```
-
-````
+  or
+```bash
+   yarn dev
+   ```
