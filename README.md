@@ -21,7 +21,7 @@ These instructions will help you set up and run the project on your local machin
 
 Make sure you have the following software installed on your machine:
 
-- [Node.js](https://nodejs.org/) (version x.x.x)
+- [Node.js](https://nodejs.org/) (version 18)
 - [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
 
 ### Installation
@@ -31,3 +31,33 @@ Make sure you have the following software installed on your machine:
    ```bash
    git clone https://github.com/adeel146/kosmic-assessment.git
    ```
+
+2. Change into the project directory:
+
+   ```bash
+   cd kosmic-assessment
+   ```
+
+3. Install project dependencies:
+
+   ```bash
+   npm install
+   ```
+
+# or
+
+yarn
+
+````
+### Running the Project
+
+1. Start the development server:
+
+   ```bash
+   npm run dev
+# or
+yarn dev
+
+   ```
+
+````
