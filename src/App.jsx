@@ -64,7 +64,7 @@ function App() {
           onSliderChange={handleSliderChange}
         />
       </Grid>
-      <Grid item style={{ height: "116px" }}>
+      <Grid item style={{ height: "116px", background: "#3A3940" }}>
         <Footer onNextClick={handleNextClick} />
       </Grid>
     </Grid>

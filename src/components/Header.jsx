@@ -66,7 +66,7 @@ const Header = () => {
               }}
               pr={1}
             >
-              <Typography variant="h6" fontSize={16} component="div">
+              <Typography variant="h6" fontSize={16} component="div" sx={{display: {xs: "none" , md: "block"}}}>
                 Jane Cooper
               </Typography>
               <Typography
@@ -74,6 +74,7 @@ const Header = () => {
                 fontSize={13}
                 color="#FF7DFF"
                 style={{ textDecoration: "underline" }}
+                sx={{display: {xs: "none" , md: "block"}}}
               >
                 Change Profile
               </Typography>

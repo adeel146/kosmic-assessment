@@ -62,7 +62,7 @@ const MainArea = ({
       <Typography variant="h6" mt={4}>
         What type of content are you creating
       </Typography>
-      <Stack direction="row" spacing={1} my={2}>
+      <Box sx={{margin:"40px 0", display:"flex", flexFlow:"wrap"}}>
         {contentTypes.map((content) => (
           <Chip
             key={content.label}
@@ -71,11 +71,17 @@ const MainArea = ({
             sx={{
               backgroundColor:
                 selectedContent === content.label ? "#523FD7" : "",
+                padding:"12px 24px",
+                height:"45px",
+                borderRadius:"24px",
+                margin:"5px"
+
+              
             }}
             onClick={() => onContentChange(content.label)}
           />
         ))}
-      </Stack>
+      </Box>
 
       {selectedContent && (
         <>
@@ -93,13 +99,14 @@ const MainArea = ({
             }
             value={selectedTitle}
             onChange={(event, newValue) => onTitleChange(newValue)}
-            sx={{ width: 300 }}
+            sx={{ width: {xs: "100%", md: "550px"}, height:"46px" }}
             renderInput={(params) => (
               <TextField
                 sx={{
-                  borderRadius: "8px",
+                  borderRadius: "12px",
                   background: "#3A3940",
                   border: "none",
+                  height:"46px"
                 }}
                 variant="outlined"
                 {...params}
@@ -115,9 +122,9 @@ const MainArea = ({
       </Typography>
       <Box
         sx={{
-          width: "381px",
+          width: {xs: "100%", md: "350px"},
           backgroundColor: "black",
-          padding: "5px",
+          padding: "6px 12px",
           borderRadius: "12px",
         }}
       >
