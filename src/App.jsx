@@ -1,27 +1,58 @@
-// App.jsx
-
-import React from "react";
+import React, { useState } from "react";
+import { Grid } from "@mui/material";
 import Header from "./components/Header";
 import MainArea from "./components/MainArea";
 import Footer from "./components/Footer";
-import { Grid } from "@mui/material";
+import { contentTypes } from "./utils/constants";
 
 function App() {
+  const [selectedContent, setSelectedContent] = useState("Fun");
+  const [selectedTitle, setSelectedTitle] = useState(null);
+  const [wordCount, setWordCount] = useState(700);
+
+  const handleContentChange = (content) => {
+    setSelectedContent(content);
+    setSelectedTitle(null);
+    console.log("Selected Content:", content);
+  };
+
+  const handleTitleChange = (title) => {
+    setSelectedTitle(title);
+    console.log("Selected Title:", title);
+  };
+
+  const handleSliderChange = (event, newValue) => {
+    setWordCount(newValue);
+    console.log("Word Count:", newValue);
+  };
+
+  const handleNextClick = () => {
+    console.log("Selected Values:", { selectedContent, selectedTitle, wordCount });
+    const alertMessage = `
+      Selected Content: ${selectedContent}
+      Selected Title: ${selectedTitle || "None"}
+      Word Count: ${wordCount}
+    `;
+    alert(`Selected Values:\n${alertMessage}`);
+  };
+
   return (
     <Grid container direction="column" style={{ minHeight: "100vh" }}>
-      {/* Header at the top */}
       <Grid item style={{ height: "111px" }}>
         <Header />
       </Grid>
-
-      {/* MainArea in the middle, takes remaining vertical space */}
       <Grid item xs flexGrow={1}>
-        <MainArea />
+        <MainArea
+          selectedContent={selectedContent}
+          selectedTitle={selectedTitle}
+          wordCount={wordCount}
+          onContentChange={handleContentChange}
+          onTitleChange={handleTitleChange}
+          onSliderChange={handleSliderChange}
+        />
       </Grid>
-
-      {/* Footer at the bottom with a fixed height */}
       <Grid item style={{ height: "116px" }}>
-        <Footer />
+        <Footer onNextClick={handleNextClick} />
       </Grid>
     </Grid>
   );

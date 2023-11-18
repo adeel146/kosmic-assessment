@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Autocomplete,
   Box,
@@ -8,26 +8,19 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import styled from "@emotion/styled";
-import { contentTypes } from "../utils/constants";
 import DropdownIcon from "../assets/icons/DropdownIcon";
+import { contentTypes } from "../utils/constants";
 
-const MainArea = () => {
-  const [selectedContent, setSelectedContent] = useState("Fun");
-  const [selectedTitle, setSelectedTitle] = useState(null);
-  const [wordCount, setWordCount] = useState(700);
-
-  const handleContentChange = (content) => {
-    setSelectedContent(content);
-    setSelectedTitle(null);
-  };
-
-  const handleTitleChange = (title) => {
-    setSelectedTitle(title);
-  };
-
-  const CustomSlider = styled(Slider)(({ theme }) => ({
-    color: theme.palette.primary.main,
+const MainArea = ({
+  selectedContent,
+  selectedTitle,
+  wordCount,
+  onContentChange,
+  onTitleChange,
+  onSliderChange,
+}) => {
+  const CustomSlider = {
+    color: (theme) => theme.palette.primary.main,
     "& .MuiSlider-thumb": {
       height: 23,
       width: 23,
@@ -48,11 +41,11 @@ const MainArea = () => {
       background: `linear-gradient(to right, #523FD7, #FF7DFF)`,
       border: "none",
     },
-  }));
+  };
 
   return (
-    <div>
-      <Typography>Content type</Typography>
+    <Box>
+      <Typography variant="h6">Content type</Typography>
       <Typography>Choose a content type that best fits your needs.</Typography>
       <Stack direction="row" spacing={1}>
         {contentTypes.map((content) => (
@@ -64,7 +57,7 @@ const MainArea = () => {
               backgroundColor:
                 selectedContent === content.label ? "#523FD7" : "",
             }}
-            onClick={() => handleContentChange(content.label)}
+            onClick={() => onContentChange(content.label)}
           />
         ))}
       </Stack>
@@ -82,7 +75,7 @@ const MainArea = () => {
                 .options
             }
             value={selectedTitle}
-            onChange={(event, newValue) => handleTitleChange(newValue)}
+            onChange={(event, newValue) => onTitleChange(newValue)}
             sx={{ width: 300 }}
             renderInput={(params) => (
               <TextField
@@ -104,18 +97,20 @@ const MainArea = () => {
       <Box sx={{ width: "381px" }}>
         <Stack direction="row" sx={{ mb: 1 }} alignItems="center">
           <Typography>100</Typography>
-          <CustomSlider
+          <Slider
+            sx={CustomSlider}
             defaultValue={700}
-            // value={wordCount}
+            value={wordCount}
             min={100}
             max={1000}
+            step={1}
             valueLabelDisplay="on"
-            // onChange={(event, newValue) => setWordCount(newValue)}
+            onChange={onSliderChange}
           />
           <Typography>1000</Typography>
         </Stack>
       </Box>
-    </div>
+    </Box>
   );
 };
 
